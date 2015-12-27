@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="grass.js"></script>
+        <script src="jquery.js"></script>
+        <script src="rangeslider.min.js"></script>
+        <link type="text/css" href="style.css" rel="stylesheet"></link
+    </head>
+    <body onload="exec()">
+        <canvas height="75px" id="canvas">
+        </canvas>
+
+        <form class="range" oninput="amount.value=updateH.value">
+            <p>Leaf Top Height</p>
+            <input type="range" name="updateH" id="updateH" name="height" min="1" max="400"   oninput="updateHeight(this.value);">
+            <output name="amount" for="updateH">0</output>
+        </form>
+        <form class="range" oninput="amount.value=updateW.value">
+            <p>Leaf Middle Width</p>
+            <input id="updateW" name="updateW" type="range" name="width" value="25" min="1" max="100" oninput="updateWidth(this.value);">
+            <output name="amount" for="updateWidth">0</output>
+        </form>
+        <form class="range" oninput="amount.value=updateMH.value">
+            <p>Leaf Middle Height</p>
+            <input type="range" value="75" id="updateMH" name="updateMH" min="1" max="400" oninput="updateMHeight(this.value);">
+            <output name="amount" for="updateH">0</output>
+        </form>
+        <form class="range" oninput="amount.value=updateA.value">
+            <p>Leaf Angle</p>
+            <input type="range" name="updateA" id="updateA" min="0" max="180" value="60" oninput="updateAngle(this.value);">
+            <output name="amount" for="updateA">0</output>
+        </form>
+        <form class="range" oninput="amount.value=radomn.value">
+            <p>Randomness</p>
+            <input type="range" id="radomn" name="randomn" min="0"  max="50" value="0" oninput="updateRandomness(this.value);">
+            <output name="amount" for="randomn">0</output>
+        </form>
+    </body>
+</html>

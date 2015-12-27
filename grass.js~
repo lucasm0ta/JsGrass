@@ -1,0 +1,58 @@
+var height=300, width, angle;
+function exec() {
+    var canvW, ctx, canvas = document.getElementById("canvas");
+    var GrassList=[], GrassItem={};
+    
+    ctx = canvas.getContext("2d");
+    canvas.width = window.outerWidth - 2;
+    canvW = canvas.width;
+    
+    var path=[];
+    for(var i=25;i<canvas.width;i+=25){
+        path.push(new Path2D('M '+i+' 400 q 75 -75 0 -300 q -75 225 0 300'));
+    }
+    //window.alert("hey"); 
+
+    function drawGrass() {
+       
+       // console.log(path.length);
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'green';
+        ctx.fillStyle = '#0c0';
+        for(var i=0;i<path.length;i++){
+            ctx.stroke(path[i]);
+            ctx.fill(path[i]);
+        }
+    }
+
+    function resizeCanvas() {
+        canvas.width = window.outerWidth - 2;
+        if(canvW!=canvas.width){
+            
+        }
+
+            /**
+             * Your drawings need to be inside this function otherwise they will be reset when 
+             * you resize the browser window and the canvas goes will be cleared.
+             */
+        drawGrass();
+    }
+    
+    $(function () {
+        $('input[type="range"]').rangeslider();
+    });
+    
+    
+    window.setInterval(function () {
+        resizeCanvas();
+        
+    },100);
+}
+function updateHeight(new_height) {
+}
+function updateWidth(new_height) {
+}
+function updateAngle(new_height) {
+}
+function updateRandomness(new_height) {
+}
