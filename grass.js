@@ -1,7 +1,17 @@
 /**
 Author: Lucas Mota Ribeiro
 */
-var Mheight = 1, height = 33, width = 17, angle = Math.PI / 2, randomness  = 14, time = 0;
+var Mheight, height, width, angle, randomness, time; 
+Mheight = 1;
+height = 33;
+width = 17;
+angle = Math.PI / 2;
+randomness  = 14;
+time = 0;
+
+/**
+Function to be execute on start
+*/
 function exec() {
     var canvW, ctx, canvas = document.getElementById("canvas");
     var GrassList = [], GrassItem = {};
