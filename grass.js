@@ -1,6 +1,10 @@
 /**
 Author: Lucas Mota Ribeiro
 */
+$(document).ready(function(){
+    exec();
+});
+
 var Mheight, height, width, angle, randomness, time, distance;
 Mheight = 1;
 height = 33;
@@ -22,9 +26,21 @@ function exec() {
     canvW = canvas.width;
 
     var grass = [];
-    var counter = 0, digits = (("" + Math.random()+Math.random() ).split("").splice(2,16));
-    console.log(digits);
+    var counter = 0, digits = ("" + Math.random()+Math.random()+Math.random()+ Math.random()+Math.random()+Math.random()+ Math.random()+Math.random()+Math.random()).split("").splice(0,160);
 
+
+    Array.prototype.remove = function() {
+        var what, a = arguments, L = a.length, ax;
+        while (L && this.length) {
+            what = a[--L];
+            while ((ax = this.indexOf(what)) !== -1) {
+                this.splice(ax, 1);
+            }
+        }
+        return this;
+    };
+    digits.remove('.');
+    console.log(digits);
     function nextRand(){
         var size=digits.length;
         counter++;
@@ -35,7 +51,7 @@ function exec() {
     }
     function createLeafs(){
         counter=0;
-        for(var i=0;i<canvas.width+100;i+=100){
+        for(var i=0;i<canvas.width+50;i+=distance){
             var leaf={}
             var paralAng=angle-Math.PI/2;
             leaf.rand0=nextRand();
@@ -134,7 +150,7 @@ function exec() {
     }
 
     function resizeCanvas() {
-        canvas.width = $('body').innerWidth();
+        canvas.width = $('canvas').parent().innerWidth();
         //console.log(window.innerWidth);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
