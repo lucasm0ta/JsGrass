@@ -1,10 +1,11 @@
 /**
 Author: Lucas Mota Ribeiro
 */
-var Mheight, height, width, angle, randomness, time; 
+var Mheight, height, width, angle, randomness, time, distance;
 Mheight = 1;
 height = 33;
 width = 17;
+distance = 10;
 angle = Math.PI / 2;
 randomness  = 14;
 time = 0;
@@ -21,8 +22,8 @@ function exec() {
     canvW = canvas.width;
 
     var grass = [];
-    var counter = 0, digits = ("" + Math.random()).split("").splice(2);
-    //console.log(digits);
+    var counter = 0, digits = (("" + Math.random()+Math.random() ).split("").splice(2,16));
+    console.log(digits);
 
     function nextRand(){
         var size=digits.length;
@@ -68,7 +69,7 @@ function exec() {
 
         grass=[];
         counter=0;
-        for(var i=-100;i<canvas.width+50;i+=10){
+        for(var i=-100;i<canvas.width+50;i+=distance){
             var time_ang=-Math.PI/6*Math.cos(((Math.PI*i)+(time*40))/1000);
             var leaf={},tHeight=0, tMheight=0, tWidth=0;
             var paralAng=angle-Math.PI/2+time_ang;
@@ -168,4 +169,12 @@ function updateAngle(new_angle) {
 }
 function updateRandomness(new_random) {
     randomness=Number(new_random);
+}
+function updateCanvasHeight(new_random) {
+    var canvas = document.getElementById("canvas");
+    canvas.height = Number(new_random);
+}
+
+function updateLeafsDistance(new_random) {
+    distance = Number(new_random);
 }

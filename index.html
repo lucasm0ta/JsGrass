@@ -7,12 +7,21 @@
         <link type="text/css" href="style.css" rel="stylesheet"></link
     </head>
     <body onload="exec()">
-        <canvas height="75px" id="canvas">
+        <canvas height="150px" id="canvas">
         </canvas>
-
+        <form class="range" oninput="amount.value=updateH.value">
+            <p>Canvas Height</p>
+            <input type="range" name="updateCanvas" id="updateCanvas" name="Canvas" min="1" max="300"   oninput="updateCanvasHeight(this.value);">
+            <output name="amount" for="updateCanvas">0</output>
+        </form>
+        <form class="range" oninput="amount.value=updateH.value">
+            <p>Leafs Distance</p>
+            <input type="range" name="updateLDistance" id="updateLDistance" name="distance" min="1" max="40"   oninput="updateLeafsDistance(this.value);">
+            <output name="amount" for="updateLDistance">0</output>
+        </form>
         <form class="range" oninput="amount.value=updateH.value">
             <p>Leaf Top Height</p>
-            <input type="range" name="updateH" id="updateH" name="height" min="1" max="400"   oninput="updateHeight(this.value);">
+            <input type="range" name="updateH" id="updateH" name="height" min="1" max="300"   oninput="updateHeight(this.value);">
             <output name="amount" for="updateH">0</output>
         </form>
         <form class="range" oninput="amount.value=updateW.value">
