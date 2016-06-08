@@ -128,13 +128,22 @@ function exec() {
             ctx.fillStyle = '#013e04';
             ctx.fill(grass[i].path1);
             ctx.fill(grass[i].path2);
-            ctx.strokeStyle = '#013e04';
+            // ctx.strokeStyle = "rgba(1,62,4,0.5)";
+
+            var grad= ctx.createLinearGradient( grass[i].X0+grass[i].X1, grass[i].Y0-grass[i].Y1, grass[i].X0, grass[i].Y0);
+            var opacity = 0; //55% visible
+            grad.addColorStop(0,'rgba(1,62,4,'+opacity+')');
+
+            grad.addColorStop(0.2,'#013e04');
+            grad.addColorStop(1,'#013e04');
+            ctx.strokeStyle = grad;
+
             ctx.beginPath();
             ctx.moveTo(grass[i].X0,grass[i].Y0);
             ctx.lineTo(grass[i].X0+grass[i].X1,grass[i].Y0-grass[i].Y1);
             ctx.stroke();
-            //ctx.fillStyle = '#000';
-            /*if(i==0){
+            /*ctx.fillStyle = '#000';
+            if(i==0){
                 ctx.font="20px Georgia";
                 ctx.fillText("x0:"+grass[i].X0+" y0:"+grass[i].Y0,10,10);
                 ctx.fillText("x1:"+grass[i].X1+" y1:"+grass[i].Y1,10,40);
