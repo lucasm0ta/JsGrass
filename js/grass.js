@@ -6,12 +6,13 @@ $(document).ready(function(){
 });
 
 var Mheight, height, width, angle, randomness, time, distance;
-Mheight = 1;
-height = 33;
-width = 17;
-distance = 10;
-angle = Math.PI / 2;
-randomness  = 14;
+Mheight = 1; //the height of the middle part of the the leaf
+height = 33; //the height of the leaf
+width = 17; //width of the leaf
+distance = 10; //distance between leafs
+angle = Math.PI / 2; //base angle
+randomness  = 14; //How much randomness is applied to the values
+color = '#013e04';
 time = 0;
 
 /**
@@ -125,16 +126,25 @@ function exec() {
 
         for(var i=0;i<grass.length;i++){
             //ctx.stroke(grass[i].path);
-            ctx.fillStyle = '#013e04';
+            ctx.fillStyle = color;
             ctx.fill(grass[i].path1);
             ctx.fill(grass[i].path2);
-            ctx.strokeStyle = '#013e04';
+            // ctx.strokeStyle = "rgba(1,62,4,0.5)";
+
+            var grad= ctx.createLinearGradient( grass[i].X0+grass[i].X1, grass[i].Y0-grass[i].Y1, grass[i].X0, grass[i].Y0);
+            var opacity = 0; //55% visible
+            grad.addColorStop(0,'rgba(1,62,4,'+opacity+')');
+
+            grad.addColorStop(0.2, color);
+            grad.addColorStop(1, color);
+            ctx.strokeStyle = grad;
+
             ctx.beginPath();
             ctx.moveTo(grass[i].X0,grass[i].Y0);
             ctx.lineTo(grass[i].X0+grass[i].X1,grass[i].Y0-grass[i].Y1);
             ctx.stroke();
-            //ctx.fillStyle = '#000';
-            /*if(i==0){
+            /*ctx.fillStyle = '#000';
+            if(i==0){
                 ctx.font="20px Georgia";
                 ctx.fillText("x0:"+grass[i].X0+" y0:"+grass[i].Y0,10,10);
                 ctx.fillText("x1:"+grass[i].X1+" y1:"+grass[i].Y1,10,40);

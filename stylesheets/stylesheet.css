@@ -1,6 +1,19 @@
 * {
   box-sizing: border-box; }
-
+.range {
+    width: 250px;
+    float: left;
+}
+#form_cont {
+    background-color: rgba(200, 200, 200, 0.2);
+    padding: 15px;
+    width: 790px;
+    margin: 0 auto;
+    height:170px;
+}
+form p {
+    font-size: 15px;
+}
 body {
   padding: 0;
   margin: 0;

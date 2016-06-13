@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Jsgrass by lucasm0ta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
@@ -25,7 +25,42 @@
       <h3>
 <a id="jsgrass" class="anchor" href="#jsgrass" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>JsGrass</h3>
 
-<p>It's a library that creates dynamic grass like the on in the footer. Depends only on Jquery.</p>
+<p>It's a library that creates dynamic grass like the one in the footer of this same page.
+     Its only dependency is Jquery and can be updated like the example bellow.</p>
+
+<p>These sliders integrate with the function changing some values dynamically.</p>
+<div id="form_cont">
+    <form class="range" oninput="amount.value=updateLDistance.value">
+        <p>Leafs Distance</p>
+        <input type="range" name="updateLDistance" id="updateLDistance" name="distance" min="1" max="40"   oninput="updateLeafsDistance(this.value);">
+        <output name="amount" for="updateLDistance">0</output>
+    </form>
+    <form class="range" oninput="amount.value=updateH.value">
+        <p>Leaf Top Height</p>
+        <input type="range" name="updateH" id="updateH" name="height" min="1" max="80"   oninput="updateHeight(this.value);">
+        <output name="amount" for="updateH">0</output>
+    </form>
+    <form class="range" oninput="amount.value=updateW.value">
+        <p>Leaf Middle Width</p>
+        <input id="updateW" name="updateW" type="range" name="width" value="25" min="1" max="60" oninput="updateWidth(this.value);">
+        <output name="amount" for="updateW">0</output>
+    </form>
+    <form class="range" oninput="amount.value=updateMH.value">
+        <p>Leaf Middle Height</p>
+        <input type="range" value="75" id="updateMH" name="updateMH" min="1" max="80" oninput="updateMHeight(this.value);">
+        <output name="amount" for="updateMH">0</output>
+    </form>
+    <form class="range" oninput="amount.value=updateA.value">
+        <p>Leaf Angle</p>
+        <input type="range" name="updateA" id="updateA" min="0" max="180" value="60" oninput="updateAngle(this.value);">
+        <output name="amount" for="updateA">0</output>
+    </form>
+    <form class="range" oninput="amount.value=radomn.value">
+        <p>Randomness</p>
+        <input type="range" id="radomn" name="randomn" min="0"  max="50" value="0" oninput="updateRandomness(this.value);">
+        <output name="amount" for="randomn">0</output>
+    </form>
+</div>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
